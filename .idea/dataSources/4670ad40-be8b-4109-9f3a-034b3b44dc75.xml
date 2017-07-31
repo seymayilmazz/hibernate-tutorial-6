@@ -12,52 +12,66 @@
     <schema id="6" parent="1" name="performance_schema"/>
     <schema id="7" parent="1" name="sakila"/>
     <schema id="8" parent="1" name="sys"/>
-    <table id="9" parent="2" name="personaddresstable"/>
-    <table id="10" parent="2" name="tbl_person"/>
-    <column id="11" parent="9" name="personId">
+    <table id="9" parent="2" name="hibernate_sequence"/>
+    <table id="10" parent="2" name="personaddresstable"/>
+    <table id="11" parent="2" name="tbl_person"/>
+    <column id="12" parent="9" name="next_val">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="13" parent="10" name="personId">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="12" parent="9" name="cityName">
+    <column id="14" parent="10" name="cityName">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="13" parent="9" name="country">
+    <column id="15" parent="10" name="country">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="14" parent="9" name="postCode">
+    <column id="16" parent="10" name="postCode">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="15" parent="9" name="streetName">
+    <column id="17" parent="10" name="streetName">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <index id="16" parent="9" name="FKmykhjd5txxvku3hc5u86745pf">
+    <column id="18" parent="10" name="addressId">
+      <Position>6</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="19" parent="10" name="FKmykhjd5txxvku3hc5u86745pf">
       <ColNames>personId</ColNames>
     </index>
-    <column id="17" parent="10" name="id">
+    <key id="20" parent="10" name="PRIMARY">
+      <ColNames>addressId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="21" parent="11" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="18" parent="10" name="age">
+    <column id="22" parent="11" name="age">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="19" parent="10" name="birthday">
+    <column id="23" parent="11" name="birthday">
       <Position>3</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="20" parent="10" name="fullName">
+    <column id="24" parent="11" name="fullName">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="21" parent="10" name="PRIMARY">
+    <key id="25" parent="11" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

@@ -1,5 +1,9 @@
 package com.codegirl.model;
 
+import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,6 +32,12 @@ public class Person {
     @JoinTable(
             name = "personAddressTable",
             joinColumns = @JoinColumn(name = "personId")
+    )
+    @GenericGenerator(name = "sequence-gen", strategy = "sequence")
+    @CollectionId(
+            columns = { @Column(name = "addressId") },
+            type = @Type(type = "long"),
+            generator = "sequence-gen"
     )
     private List<Address> addressList = new ArrayList<>();
 
