@@ -5,10 +5,12 @@ import com.codegirl.model.Person;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Şeyma Yılmaz on 30.7.2017.
@@ -70,6 +72,10 @@ public class HibernateTest {
         person2.getAddressList().add(jobAddress);
 
         session.save(person2);
+
+        Query query = session.createQuery("FROM Person");
+        List<Person> personList = query.list();
+
 
         session.getTransaction().commit();
         session.close();

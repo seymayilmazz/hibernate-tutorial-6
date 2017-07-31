@@ -28,7 +28,7 @@ public class Person {
     @Temporal(TemporalType.DATE)
     private Date birthday;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @JoinTable(
             name = "personAddressTable",
             joinColumns = @JoinColumn(name = "personId")
